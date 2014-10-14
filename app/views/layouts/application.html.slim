@@ -9,5 +9,19 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
+    nav
+      .container
+        .navbar-header
+          button.navbar-toggle data-toggle="collapse" data-target=".navbar-collapse"
+            span.sr-only Toggle navigation
+            - 3.times
+              span.icon-bar
+          a.navbar-band href="/"
+            |The Idea app
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.active
+              a href="/ideas"
+                |Ideas
     .container
       = yield

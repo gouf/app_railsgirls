@@ -8,7 +8,8 @@ p
   = @idea.description
 p
   strong Picture:
-  = @idea.picture
+  br
+  = image_tag(@idea.picture_url, width: 600) if @idea.picture.present?
 
 = link_to 'Edit', edit_idea_path(@idea)
 '|

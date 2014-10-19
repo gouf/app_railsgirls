@@ -1,0 +1,13 @@
+p#notice = notice
+
+p
+  strong User name:
+  = @comment.user_name
+p
+  strong Body:
+  = @comment.body
+p
+  strong Idea:
+  = @comment.idea_id
+
+= link_to 'Back', comments_path

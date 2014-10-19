@@ -8,7 +8,23 @@ p
   = @idea.description
 p
   strong Picture:
-  = @idea.picture
+  br
+  = image_tag(@idea.picture_url, width: 600) if @idea.picture.present?
+
+h3
+  Comments
+  /- @comments.to_a.each do |comment|
+  - @comments.each do |comment|
+    div
+      strong
+        = comment.user_name
+      br
+      p
+        = comment.body
+      p
+        = link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }
+
+= render 'comments/form'
 
 = link_to 'Edit', edit_idea_path(@idea)
 '|

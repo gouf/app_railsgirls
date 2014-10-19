@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+idea_data =
+3.times.map.reduce([]) do |array, item|
+  array << {name: "name #{item}", description: "description #{item}"}
+end
+Idea.create(idea_data)

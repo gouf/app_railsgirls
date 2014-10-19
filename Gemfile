@@ -41,3 +41,4 @@ gem 'spring',        group: :development
 gem 'slim-rails'
 
 gem 'carrierwave'
+gem 'mini_magick'

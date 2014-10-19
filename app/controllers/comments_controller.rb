@@ -22,6 +22,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+    @comment = Comment.new
   end
 
   # POST /comments

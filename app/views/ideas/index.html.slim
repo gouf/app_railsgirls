@@ -11,14 +11,17 @@ table
       th
 
   tbody
-    - @ideas.each do |idea|
-      tr
-        td = idea.name
-        td = idea.description
-        td = image_tag idea.picture if idea.picture?
-        td = link_to 'Show', idea
-        td = link_to 'Edit', edit_idea_path(idea)
-        td = link_to 'Destroy', idea, data: {:confirm => 'Are you sure?'}, :method => :delete
+    - @ideas.in_groups_of(3) do |group|
+      .row
+        - group.compact.each do |idea|
+          .col-md-4
+            h4
+              = idea.name
+            = idea.description
+            = image_tag(idea.picture, width: '100%') if idea.picture?
+            = link_to 'Show', idea
+            = link_to 'Edit', edit_idea_path(idea)
+            = link_to 'Destroy', idea, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

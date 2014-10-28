@@ -20,9 +20,8 @@ html
             |The Idea app
         .collapse.navbar-collapse
           ul.nav.navbar-nav
-            li.active
-              a href="/ideas"
-                |Ideas
+            li
+              = link_to 'New Idea', new_idea_path
     .container
       = yield
     footer

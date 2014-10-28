@@ -22,7 +22,20 @@ html
           ul.nav.navbar-nav
             li
               = link_to 'New Idea', new_idea_path
+          p.navbar-text.pull-right
+            - if user_signed_in?
+              |Logged in as
+              = content_tag(:strong, ' ' + current_user.email)
+              = link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link'
+              = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'navbar-link'
+            - else
+              = link_to 'Sign up', new_user_registration_path, class: 'navbar-link'
+              = link_to 'Login', new_user_session_path, class: 'navbar-link'
     .container
+      - if notice
+        = content_tag(:p, notice, class: 'alert alert-success')
+      - if alert
+        = content_tag(:p, alert, class: 'alert alert-danger')
       = yield
     footer
       .container Rails Girls 2014

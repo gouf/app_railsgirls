@@ -23,6 +23,10 @@ html
             li
               = link_to 'New Idea', new_idea_path
     .container
+      - if notice
+        = content_tag(:p, notice, class: 'alert alert-success')
+      - if alert
+        = content_tag(:p, alert, class: 'alert alert-danger')
       = yield
     footer
       .container Rails Girls 2014

@@ -15,7 +15,7 @@ table
       tr
         td = idea.name
         td = idea.description
-        td = idea.picture
+        td = image_tag idea.picture if idea.picture?
         td = link_to 'Show', idea
         td = link_to 'Edit', edit_idea_path(idea)
         td = link_to 'Destroy', idea, data: {:confirm => 'Are you sure?'}, :method => :delete
